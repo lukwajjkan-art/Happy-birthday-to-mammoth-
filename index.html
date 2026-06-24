@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:linear-gradient(135deg,#1a1a1a,#000);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+.page{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
+}
+h1{
+    color:#ff6fa5;
+    font-size:42px;
+}
+input{
+    padding:15px;
+    border:none;
+    border-radius:30px;
+    width:250px;
+    text-align:center;
+    font-size:18px;
+}
+button{
+    margin-top:15px;
+    padding:15px 30px;
+    border:none;
+    border-radius:30px;
+    background:#ff6fa5;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+#main{
+    display:none;
+}
+.gallery img{
+    width:250px;
+    border-radius:20px;
+    margin:10px;
+    box-shadow:0 5px 20px rgba(255,255,255,.2);
+}
+.message{
+    max-width:700px;
+    background:rgba(255,255,255,.1);
+    padding:30px;
+    border-radius:20px;
+    margin-top:30px;
+    line-height:1.8;
+}
+.heart{
+    position:fixed;
+    color:#ff6fa5;
+    animation:float 6s linear infinite;
+}
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-100px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+<body>
+<div id="login" class="page">
+    <h1>🎁 มีเซอร์ไพรส์สำหรับคุณ 🎁</h1>
+    <p>กรอกรหัสวันครบรอบของเรา</p>
+    <input id="password" type="password" placeholder="ใส่รหัส...">
+    <button onclick="checkPassword()">เปิดของขวัญ ❤️</button>
+    <p id="error"></p>
+</div>
+<div id="main" class="page">
+    <h1>🎂 Happy Birthday My Love 🎂</h1>
+    <h2>11 กรกฎาคม</h2>
+    <h2>สุขสันต์วันเกิดนะคนพิเศษของเค้า ❤️</h2>
+    <div class="gallery">
+        <img src="รูป1.jpg">
+        <img src="รูป2.jpg">
+        <img src="รูป3.jpg">
+    </div>
+    <div class="message">
+        ขอบคุณที่เข้ามาเป็นรอยยิ้มและความสุขของเค้า<br><br>
+        ตั้งแต่วันที่ 07/06/2024 จนถึงวันนี้
+        ทุกช่วงเวลาที่มีเธออยู่ข้าง ๆ เป็นความทรงจำที่มีค่ามากที่สุด<br><br>
+        ในวันเกิดปีนี้ เค้าไม่ได้ขออะไรเลย
+        นอกจากอยากเห็นเธอมีความสุข ยิ้มเยอะ ๆ
+        และให้เราจับมือกันไปอีกนาน ๆ ❤️<br><br>
+        สุขสันต์วันเกิดนะคนเก่งของเค้า
+        ขอบคุณที่เข้ามาเติมเต็มชีวิตของเค้าในทุกวัน 🎂🎉
+    </div>
+</div>
+<script>
+function checkPassword(){
+    const pass = document.getElementById("password").value;
+    if(pass === "07062024"){
+        document.getElementById("login").style.display="none";
+        document.getElementById("main").style.display="flex";
+        setInterval(()=>{
+            const heart=document.createElement("div");
+            heart.className="heart";
+            heart.innerHTML="❤️";
+            heart.style.left=Math.random()*100+"vw";
+            heart.style.fontSize=(20+Math.random()*30)+"px";
+            document.body.appendChild(heart);
+            setTimeout(()=>{
+                heart.remove();
+            },6000);
+        },300);
+    }else{
+        document.getElementById("error").innerHTML =
+        "❌ ใบ้ให้นิดนึง... เป็นวันที่เราเริ่มต้นกัน ❤️";
+    }
+}
+</script>
+</body>
+</html>
